@@ -97,15 +97,20 @@ const Game1 = () => {
             </>
           )}
         </div>
-        {show == 1 ?  <div className="col-md-6 d-block text-start ms-4 mt-4">
-          {jumlahTebakan === -1
-            ? "Silahkan Mulai Permainan "
-            : `Nilai Aslinya Adalah ${nilai}`}
-        </div> : " "}
-       
-
-        <div className="col-md-6 d-block text-start ms-4 mt-4">
-          {jumlahTebakan === -1 ? "" : `Jumlah Tebakan ${jumlahTebakan}`}
+        
+       <div className="col-md-6 d-block text-start ms-4 mt-4">
+          {jumlahTebakan === -1 ? (
+            "Silahkan Mulai Permainan"
+          ) : (
+            <>
+              {show == 1 ? <div className="d-block text-start mb-4">
+                Nilai Aslinya Adalah {nilai}
+              </div> : ""}
+              <div className="d-block text-start">
+                Jumlah Tebakan {jumlahTebakan}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="col-md-6 d-flex justify-content-start">
