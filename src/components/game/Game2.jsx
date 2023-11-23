@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-const options = ["Penting", "Biasa", "Tidak Penting"];
+const options = ["Urgent", "Normal", "Biasa Saja"];
 
 function Game2() {
   const [list, setList] = useState([]);
@@ -19,11 +19,10 @@ function Game2() {
       };
 
       return [...dataSebelumnya, newData];
-      console.log(list);
     });
 
     setNamaToDoList("");
-    setPriority(options[0]);
+    setPriority("");
     setCatatan("");
   };
 
@@ -47,7 +46,7 @@ function Game2() {
         </div>
         <div className="col-md-6">
           <label htmlFor="inputNama" className="form-label d-block text-start">
-            Penting gk?
+            Pilih Priority
           </label>
           <select
             className="form-select"
@@ -76,13 +75,13 @@ function Game2() {
             placeholder="Isi Catatan To-Do List"
             id="inputNama"
             value={catatan}
-            style={{ height: "100px", resize: "none" }}
+            style={{ height: "100px" }}
             onChange={(e) => setCatatan(e.target.value)}
           />
         </div>
 
         <div className="col-md-12 d-flex justify-content-start">
-          <button className="btn btn-primary mt-3">Mulai Permainan</button>
+          <button className="btn btn-primary mt-3">Tambah To-Do List</button>
         </div>
       </form>
 
@@ -91,10 +90,11 @@ function Game2() {
           <div className="col-md-4 mb-3">
             <div className="card border-black border-1">
               <div
-                className={`card-header text-light ${
-                  item.priority === "Penting"
+                className={`card-header text-light 
+                ${
+                  item.priority === "Urgent"
                     ? "bg-danger"
-                    : item.priority === "Biasa"
+                    : item.priority === "Normal"
                     ? "bg-success"
                     : "bg-dark"
                 } `}
